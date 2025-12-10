@@ -13,42 +13,52 @@ export function Header() {
   const itemCount = getItemCount()
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 shadow-sm">
       <div className="container flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-2xl font-bold">Fashion Store</span>
+        <Link href="/" className="flex items-center space-x-2 group">
+          <div className="relative">
+            <span className="text-2xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform">
+              ⭐ Little Stars
+            </span>
+          </div>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
           <Link
             href="/"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            className="text-sm font-bold transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-500 after:to-purple-500 hover:after:w-full after:transition-all duration-300"
           >
-            Home
+            🏠 Home
           </Link>
           <Link
             href="/products"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            className="text-sm font-bold transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-500 after:to-purple-500 hover:after:w-full after:transition-all duration-300"
           >
-            Products
+            👕 All Products
           </Link>
           <Link
-            href="/products?category=men"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            href="/products?category=baby"
+            className="text-sm font-bold transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-500 after:to-purple-500 hover:after:w-full after:transition-all duration-300"
           >
-            Men
+            👶 Baby
           </Link>
           <Link
-            href="/products?category=women"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            href="/products?category=toddler"
+            className="text-sm font-bold transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-500 after:to-purple-500 hover:after:w-full after:transition-all duration-300"
           >
-            Women
+            🧸 Toddler
           </Link>
+            <Link
+              href="/products?category=kids"
+              className="text-sm font-bold transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-500 after:to-purple-500 hover:after:w-full after:transition-all duration-300"
+            >
+              ⭐ Big Kids
+            </Link>
           <Link
             href="/products?category=accessories"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            className="text-sm font-bold transition-colors hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-500 after:to-purple-500 hover:after:w-full after:transition-all duration-300"
           >
-            Accessories
+            🎒 Accessories
           </Link>
         </nav>
 
@@ -56,15 +66,15 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="relative"
+            className="relative hover:bg-primary/10 transition-colors rounded-full"
             onClick={() => setIsOpen(true)}
             aria-label="Shopping cart"
           >
-            <ShoppingCart className="h-5 w-5" />
+            <ShoppingCart className="h-5 w-5 transition-transform hover:scale-110" />
             {itemCount > 0 && (
               <Badge
                 variant="destructive"
-                className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs"
+                className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs animate-pulse shadow-lg"
               >
                 {itemCount}
               </Badge>
@@ -101,25 +111,32 @@ export function Header() {
               Products
             </Link>
             <Link
-              href="/products?category=men"
-              className="text-sm font-medium transition-colors hover:text-primary py-2"
+              href="/products?category=baby"
+              className="text-sm font-bold transition-colors hover:text-primary py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Men
+              👶 Baby (0-2 Years)
             </Link>
             <Link
-              href="/products?category=women"
-              className="text-sm font-medium transition-colors hover:text-primary py-2"
+              href="/products?category=toddler"
+              className="text-sm font-bold transition-colors hover:text-primary py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Women
+              🧸 Toddler (2-4 Years)
+            </Link>
+            <Link
+              href="/products?category=kids"
+              className="text-sm font-bold transition-colors hover:text-primary py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              ⭐ Big Kids (4-6 Years)
             </Link>
             <Link
               href="/products?category=accessories"
-              className="text-sm font-medium transition-colors hover:text-primary py-2"
+              className="text-sm font-bold transition-colors hover:text-primary py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Accessories
+              🎒 Accessories
             </Link>
           </div>
         </nav>

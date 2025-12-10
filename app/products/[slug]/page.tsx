@@ -71,7 +71,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const relatedProducts = serializeProducts(relatedProductsRaw);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-b from-background to-pink-50/30 dark:to-pink-950/10">
+      <div className="container mx-auto px-4 py-8 md:py-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
         {/* Product Images */}
         <div>
@@ -136,8 +137,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       {/* Related Products */}
       {relatedProducts.length > 0 && (
-        <div>
-          <h2 className="text-2xl font-bold mb-6">You May Also Like</h2>
+        <div className="mt-16">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-8 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent text-center md:text-left">
+            ⭐ You May Also Like
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedProducts.map((relatedProduct) => (
               <ProductCard key={relatedProduct.id} product={relatedProduct} />
@@ -145,6 +148,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }
