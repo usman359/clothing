@@ -32,6 +32,8 @@ async function main() {
       sizes: ["2Y", "3Y", "4Y"],
       colors: ["Pink", "Purple", "Blue"],
       inStock: true,
+      rating: 4.5,
+      ratingCount: 23,
     },
     {
       name: "Cute Dinosaur Hoodie",
@@ -47,6 +49,8 @@ async function main() {
       sizes: ["3Y", "4Y", "5Y", "6Y"],
       colors: ["Green", "Blue", "Gray"],
       inStock: true,
+      rating: 4.8,
+      ratingCount: 45,
     },
     {
       name: "Princess Rainbow Dress",
@@ -62,6 +66,8 @@ async function main() {
       sizes: ["4Y", "5Y", "6Y"],
       colors: ["Rainbow", "Pink", "Purple"],
       inStock: true,
+      rating: 5.0,
+      ratingCount: 67,
     },
     {
       name: "Superhero Cape & Mask Set",
@@ -77,6 +83,8 @@ async function main() {
       sizes: ["One Size"],
       colors: ["Red", "Blue", "Yellow"],
       inStock: true,
+      rating: 4.7,
+      ratingCount: 34,
     },
     {
       name: "Cozy Bunny Onesie",
@@ -92,6 +100,8 @@ async function main() {
       sizes: ["6M", "12M", "18M"],
       colors: ["Pink", "Gray", "White"],
       inStock: true,
+      rating: 4.9,
+      ratingCount: 89,
     },
     {
       name: "Adventure Explorer Pants",
@@ -107,6 +117,8 @@ async function main() {
       sizes: ["4Y", "5Y", "6Y"],
       colors: ["Khaki", "Navy", "Olive"],
       inStock: true,
+      rating: 4.6,
+      ratingCount: 28,
     },
     {
       name: "Little Gentleman Blazer Set",
@@ -122,6 +134,8 @@ async function main() {
       sizes: ["4Y", "5Y", "6Y"],
       colors: ["Navy", "Black", "Gray"],
       inStock: true,
+      rating: 4.4,
+      ratingCount: 19,
     },
     {
       name: "Cozy Animal Print Hoodie",
@@ -137,6 +151,8 @@ async function main() {
       sizes: ["2Y", "3Y", "4Y", "5Y", "6Y"],
       colors: ["Pink", "Blue", "Gray"],
       inStock: true,
+      rating: 4.3,
+      ratingCount: 52,
     },
     {
       name: "Fun Character Socks Pack",
@@ -152,6 +168,8 @@ async function main() {
       sizes: ["One Size"],
       colors: ["Multicolor"],
       inStock: true,
+      rating: 4.2,
+      ratingCount: 41,
     },
     {
       name: "Cute Backpack with Character",
@@ -167,6 +185,8 @@ async function main() {
       sizes: ["One Size"],
       colors: ["Pink", "Blue", "Purple"],
       inStock: true,
+      rating: 4.8,
+      ratingCount: 76,
     },
   ];
 
@@ -182,6 +202,8 @@ async function main() {
         sizes: product.sizes,
         colors: product.colors,
         inStock: product.inStock,
+        rating: product.rating,
+        ratingCount: product.ratingCount,
       },
       create: product,
     });

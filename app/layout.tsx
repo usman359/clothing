@@ -4,7 +4,8 @@ import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { CartDrawer } from "@/components/layout/CartDrawer";
+import { CartSheetWrapper } from "@/components/layout/CartSheetWrapper";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -31,7 +32,8 @@ export default function RootLayout({
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
-            <CartDrawer />
+            <CartSheetWrapper />
+            <WhatsAppButton />
           </div>
         </CartProvider>
       </body>

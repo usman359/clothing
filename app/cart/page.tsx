@@ -4,7 +4,7 @@ import { useCart } from "@/lib/cart-context"
 import { CartItem } from "@/components/layout/CartItem"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ShoppingBag, ArrowRight } from "lucide-react"
+import { ShoppingBag } from "lucide-react"
 import Link from "next/link"
 import { Separator } from "@/components/ui/separator"
 
@@ -23,10 +23,9 @@ export default function CartPage() {
           <p className="text-muted-foreground mb-8">
             Looks like you haven&apos;t added anything to your cart yet.
           </p>
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="bg-pink-500 hover:bg-pink-600 text-white">
             <Link href="/products">
               Continue Shopping
-              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>
@@ -61,23 +60,22 @@ export default function CartPage() {
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span>Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>Rs.{subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span>Shipping</span>
-                  <span>${shipping.toFixed(2)}</span>
+                  <span>Rs.{shipping.toFixed(2)}</span>
                 </div>
                 <Separator />
                 <div className="flex justify-between text-lg font-semibold">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>Rs.{total.toFixed(2)}</span>
                 </div>
               </div>
 
-              <Button className="w-full" size="lg" asChild>
+              <Button className="w-full bg-pink-500 hover:bg-pink-600 text-white" size="lg" asChild>
                 <Link href="/checkout">
                   Proceed to Checkout
-                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
 

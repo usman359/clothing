@@ -39,7 +39,7 @@ export function CartItem({ item }: CartItemProps) {
           Size: {item.size}
           {item.color && ` • Color: ${item.color}`}
         </p>
-        <p className="font-semibold">${item.price.toFixed(2)}</p>
+        <p className="font-semibold">Rs.{item.price.toFixed(2)}</p>
       </div>
 
       <div className="flex items-center gap-2">

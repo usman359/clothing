@@ -111,22 +111,22 @@ export default async function OrderSuccessPage({ searchParams }: OrderSuccessPag
                     </p>
                   </div>
                   <p className="font-semibold">
-                    ${(item.price * item.quantity).toFixed(2)}
+                    Rs.{(item.price * item.quantity).toFixed(2)}
                   </p>
                 </div>
               ))}
               <div className="pt-2 space-y-1">
                 <div className="flex justify-between text-sm">
                   <span>Subtotal</span>
-                  <span>${(Number(order.totalAmount) - 10).toFixed(2)}</span>
+                  <span>Rs.{(Number(order.totalAmount) - 10).toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span>Shipping</span>
-                  <span>$10.00</span>
+                  <span>Rs.10.00</span>
                 </div>
                 <div className="flex justify-between text-lg font-bold pt-2 border-t">
                   <span>Total</span>
-                  <span>${Number(order.totalAmount).toFixed(2)}</span>
+                  <span>Rs.{Number(order.totalAmount).toFixed(2)}</span>
                 </div>
               </div>
             </div>

@@ -4,7 +4,6 @@ import { useState } from "react"
 import { useCart } from "@/lib/cart-context"
 import { SizeSelector } from "./SizeSelector"
 import { Button } from "@/components/ui/button"
-import { ShoppingCart } from "lucide-react"
 
 interface Product {
   id: string
@@ -88,12 +87,11 @@ export function AddToCartButton({ product }: AddToCartButtonProps) {
       </div>
 
       <Button
-        className="w-full"
+        className="w-full bg-pink-500 hover:bg-pink-600 text-white"
         size="lg"
         onClick={handleAddToCart}
         disabled={!selectedSize}
       >
-        <ShoppingCart className="mr-2 h-5 w-5" />
         Add to Cart
       </Button>
     </div>

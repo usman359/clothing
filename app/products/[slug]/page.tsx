@@ -5,6 +5,7 @@ import { SizeSelector } from "@/components/product/SizeSelector";
 import { AddToCartButton } from "@/components/product/AddToCartButton";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Separator } from "@/components/ui/separator";
+import { StarRating } from "@/components/ui/star-rating";
 import { serializeProduct, serializeProducts } from "@/lib/serialize";
 import type { Metadata } from "next";
 
@@ -83,8 +84,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className="space-y-6">
           <div>
             <h1 className="text-4xl font-bold mb-2">{product.name}</h1>
+            {product.rating && (
+              <div className="mb-3">
+                <StarRating
+                  rating={product.rating}
+                  ratingCount={product.ratingCount}
+                  size="md"
+                />
+              </div>
+            )}
             <p className="text-2xl font-semibold text-primary mb-4">
-              ${product.price.toFixed(2)}
+              Rs.{product.price.toFixed(2)}
             </p>
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground capitalize">
