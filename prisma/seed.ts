@@ -70,23 +70,6 @@ async function main() {
       ratingCount: 67,
     },
     {
-      name: "Superhero Cape & Mask Set",
-      slug: "superhero-cape-set",
-      description:
-        "Transform into a superhero with this awesome cape and mask set! Made from lightweight, safe materials. Perfect for imaginative play. Age 3-6 years.",
-      price: 19.99,
-      images: [
-        "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=800&q=80&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80&auto=format&fit=crop",
-      ],
-      category: "accessories",
-      sizes: ["One Size"],
-      colors: ["Red", "Blue", "Yellow"],
-      inStock: true,
-      rating: 4.7,
-      ratingCount: 34,
-    },
-    {
       name: "Cozy Bunny Onesie",
       slug: "bunny-onesie",
       description:
@@ -153,40 +136,6 @@ async function main() {
       inStock: true,
       rating: 4.3,
       ratingCount: 52,
-    },
-    {
-      name: "Fun Character Socks Pack",
-      slug: "character-socks-pack",
-      description:
-        "Pack of 3 pairs featuring favorite characters! Super soft and stretchy. Kids love wearing these fun designs. One size fits most 3-8 years.",
-      price: 12.99,
-      images: [
-        "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=800&q=80&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800&q=80&auto=format&fit=crop",
-      ],
-      category: "accessories",
-      sizes: ["One Size"],
-      colors: ["Multicolor"],
-      inStock: true,
-      rating: 4.2,
-      ratingCount: 41,
-    },
-    {
-      name: "Cute Backpack with Character",
-      slug: "character-backpack",
-      description:
-        "Adorable backpack featuring popular characters! Perfect for preschool, daycare, or adventures. Roomy and durable with comfortable straps. Age 3-6 years.",
-      price: 29.99,
-      images: [
-        "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=800&q=80&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80&auto=format&fit=crop",
-      ],
-      category: "accessories",
-      sizes: ["One Size"],
-      colors: ["Pink", "Blue", "Purple"],
-      inStock: true,
-      rating: 4.8,
-      ratingCount: 76,
     },
   ];
 

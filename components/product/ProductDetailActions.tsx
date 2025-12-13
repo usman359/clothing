@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { CartSheet } from "@/components/layout/CartSheet";
+import { SizeChartModal } from "@/components/product/SizeChartModal";
 
 interface Product {
   id: string;
@@ -16,6 +17,7 @@ interface Product {
   sizes: string[];
   colors: string[];
   inStock: boolean;
+  category?: string;
 }
 
 interface ProductDetailActionsProps {
@@ -28,6 +30,7 @@ export function ProductDetailActions({ product }: ProductDetailActionsProps) {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [cartSheetOpen, setCartSheetOpen] = useState(false);
+  const [sizeChartOpen, setSizeChartOpen] = useState(false);
 
   const handleAddToCart = () => {
     if (!selectedSize) {
@@ -96,7 +99,7 @@ export function ProductDetailActions({ product }: ProductDetailActionsProps) {
               size="sm"
               onClick={() => setSelectedSize(size)}
               className={cn(
-                "min-w-[3.5rem] h-10 font-semibold",
+                "min-w-14 h-10 font-semibold",
                 selectedSize === size
                   ? "bg-black text-white border-black hover:bg-black/90"
                   : "bg-white text-black border-black hover:bg-gray-100"
@@ -161,18 +164,26 @@ export function ProductDetailActions({ product }: ProductDetailActionsProps) {
         </Button>
       </div>
 
-      {/* Size Chart Link */}
+      {/* Size Chart Button */}
       <div>
-        <a
-          href="#size-chart"
-          className="text-sm underline text-muted-foreground hover:text-primary"
+        <button
+          onClick={() => setSizeChartOpen(true)}
+          className="text-sm underline text-muted-foreground hover:text-primary font-medium"
+          type="button"
         >
-          Size Chart
-        </a>
+          📏 View Size Chart
+        </button>
       </div>
 
       {/* Cart Sheet */}
       <CartSheet open={cartSheetOpen} onOpenChange={setCartSheetOpen} />
+
+      {/* Size Chart Modal */}
+      <SizeChartModal
+        open={sizeChartOpen}
+        onOpenChange={setSizeChartOpen}
+        category={product.category}
+      />
     </div>
   );
 }

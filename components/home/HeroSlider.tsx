@@ -5,6 +5,8 @@ import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef } from "react";
 
 const slides = [
   {
@@ -21,7 +23,7 @@ const slides = [
   {
     id: 2,
     image:
-      "https://images.unsplash.com/photo-1605360012249-7c46e2f7cbbf?w=1920&q=90&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1920&q=90&auto=format&fit=crop",
     title: "New Collection",
     subtitle: "Available Now!",
     description:
@@ -54,8 +56,11 @@ const slides = [
 ];
 
 export function HeroSlider() {
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+
   return (
-    <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
+    <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden group">
       <Swiper
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
         spaceBetween={0}
@@ -69,7 +74,19 @@ export function HeroSlider() {
           bulletClass: "swiper-pagination-bullet !bg-white/50 !opacity-100",
           bulletActiveClass: "swiper-pagination-bullet-active !bg-white",
         }}
-        navigation={true}
+        navigation={{
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
+        }}
+        onBeforeInit={(swiper) => {
+          if (typeof swiper.params.navigation !== "boolean") {
+            const navigation = swiper.params.navigation;
+            if (navigation) {
+              navigation.prevEl = prevRef.current;
+              navigation.nextEl = nextRef.current;
+            }
+          }
+        }}
         effect="fade"
         fadeEffect={{
           crossFade: true,
@@ -93,7 +110,7 @@ export function HeroSlider() {
             </div>
             <div className="relative z-10 h-full flex items-center">
               <div className="container mx-auto px-4">
-                <div className="max-w-3xl space-y-6 animate-fade-in">
+                <div className="max-w-2xl space-y-6 animate-fade-in">
                   <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/90 backdrop-blur-sm border-2 border-white/50 text-sm font-bold text-pink-600 shadow-xl mb-4">
                     <span>New Fun Collection!</span>
                   </div>
@@ -113,9 +130,7 @@ export function HeroSlider() {
                       asChild
                       className="text-base px-8 md:px-10 py-6 md:py-7 bg-pink-500 hover:bg-pink-600 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full font-bold"
                     >
-                      <Link href={slide.buttonLink}>
-                        {slide.buttonText}
-                      </Link>
+                      <Link href={slide.buttonLink}>{slide.buttonText}</Link>
                     </Button>
                     <Button
                       size="lg"
@@ -123,9 +138,7 @@ export function HeroSlider() {
                       className="text-base px-8 md:px-10 py-6 md:py-7 border-2 border-white/60 text-white hover:bg-white/30 hover:border-white backdrop-blur-sm transition-all duration-300 hover:scale-105 rounded-full font-bold shadow-xl"
                       asChild
                     >
-                      <Link href="/collections">
-                        Explore Collection
-                      </Link>
+                      <Link href="/collections">Explore Collection</Link>
                     </Button>
                   </div>
                 </div>
@@ -134,6 +147,24 @@ export function HeroSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Custom Navigation Arrows */}
+      <button
+        ref={prevRef}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/40 flex items-center justify-center text-white shadow-2xl transition-all duration-300 hover:bg-white/30 hover:border-white/60 hover:scale-110 active:scale-95 opacity-0 group-hover:opacity-100"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 stroke-3" />
+      </button>
+
+      <button
+        ref={nextRef}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/40 flex items-center justify-center text-white shadow-2xl transition-all duration-300 hover:bg-white/30 hover:border-white/60 hover:scale-110 active:scale-95 opacity-0 group-hover:opacity-100"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 stroke-3" />
+      </button>
+
       <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-background to-transparent z-20 pointer-events-none"></div>
     </section>
   );

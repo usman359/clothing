@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CartSheetWrapper } from "@/components/layout/CartSheetWrapper";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { ScrollToTopButton } from "@/components/layout/ScrollToTopButton";
 
-const nunito = Nunito({
+const outfit = Outfit({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-nunito",
+  variable: "--font-outfit",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
+      <body className={outfit.className}>
         <CartProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
@@ -34,6 +36,7 @@ export default function RootLayout({
             <Footer />
             <CartSheetWrapper />
             <WhatsAppButton />
+            <ScrollToTopButton />
           </div>
         </CartProvider>
       </body>

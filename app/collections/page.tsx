@@ -2,14 +2,31 @@ import { db } from "@/lib/db";
 import { ProductCard } from "@/components/product/ProductCard";
 import { serializeProducts } from "@/lib/serialize";
 
-export default async function CollectionsPage() {
+interface CollectionsPageProps {
+  searchParams: Promise<{ search?: string }>;
+}
+
+export default async function CollectionsPage({
+  searchParams,
+}: CollectionsPageProps) {
+  const { search } = await searchParams;
   let products: any[] = [];
 
   try {
+    const whereClause: any = {
+      inStock: true,
+    };
+
+    // Add search filter if search query exists
+    if (search) {
+      whereClause.OR = [
+        { name: { contains: search, mode: "insensitive" } },
+        { description: { contains: search, mode: "insensitive" } },
+      ];
+    }
+
     const rawProducts = await db.product.findMany({
-      where: {
-        inStock: true,
-      },
+      where: whereClause,
       orderBy: {
         createdAt: "desc",
       },
@@ -19,26 +36,37 @@ export default async function CollectionsPage() {
     console.error("Database error:", error);
   }
 
+  const pageTitle = search
+    ? `Search Results for "${search}"`
+    : "All Collections";
+  const pageDescription = search
+    ? `Found ${products.length} product${
+        products.length !== 1 ? "s" : ""
+      } matching "${search}"`
+    : "Discover our complete collection of fun, colorful kids clothing! 🎨";
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-pink-50/30 dark:to-pink-950/10">
+    <div className="min-h-screen bg-linear-to-b from-background to-pink-50/30 dark:to-pink-950/10">
       <div className="container mx-auto px-4 py-8 md:py-12">
         <div className="mb-8 md:mb-12">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-3 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-            🌟 All Collections
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-3 bg-linear-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+            {search ? `🔍 ${pageTitle}` : "🌟 All Collections"}
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground font-medium">
-            Discover our complete collection of fun, colorful kids clothing! 🎨
+            {pageDescription}
           </p>
         </div>
 
         {products.length === 0 ? (
           <div className="text-center py-16 bg-card border-2 rounded-2xl shadow-lg">
-            <div className="text-6xl mb-4">😢</div>
+            <div className="text-6xl mb-4">{search ? "🔍" : "😢"}</div>
             <p className="text-xl font-bold mb-2 text-primary">
-              No products found
+              {search ? "No products found" : "No products available"}
             </p>
             <p className="text-muted-foreground font-medium">
-              Check back soon for new arrivals!
+              {search
+                ? `Try searching for something else`
+                : "Check back soon for new arrivals!"}
             </p>
           </div>
         ) : (

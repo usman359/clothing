@@ -1,34 +1,42 @@
-import Link from "next/link"
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react"
+import Link from "next/link";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t border-pink-200/50 bg-gradient-to-b from-white via-pink-50/30 to-purple-50/20">
+    <footer className="border-t border-pink-200/50 bg-linear-to-b from-white via-pink-50/30 to-purple-50/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Section */}
           <div className="space-y-5">
             <div>
-              <h3 className="text-3xl font-black bg-linear-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-3">
+              <h3 className="text-3xl md:text-4xl font-black bg-linear-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-3">
                 ⭐ Little Stars
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed max-w-xs font-medium">
-                ✨ Where kids find their favorite outfits! Colorful, comfy & fun clothing for ages 0-6. Made with love! ❤️
+              <p className="text-base text-gray-600 leading-relaxed max-w-xs font-medium">
+                ✨ Where kids find their favorite outfits! Colorful, comfy & fun
+                clothing for ages 0-6. Made with love! ❤️
               </p>
             </div>
-            
+
             {/* Contact Info */}
             <div className="space-y-2 pt-2">
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <Phone className="h-4 w-4 text-pink-500" />
+              <div className="flex items-center space-x-2 text-base text-gray-600">
+                <Phone className="h-5 w-5 text-pink-500" />
                 <span className="font-medium">+92 300 1234567</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <Mail className="h-4 w-4 text-pink-500" />
+              <div className="flex items-center space-x-2 text-base text-gray-600">
+                <Mail className="h-5 w-5 text-pink-500" />
                 <span className="font-medium">hello@littlestars.com</span>
               </div>
-              <div className="flex items-start space-x-2 text-sm text-gray-600">
-                <MapPin className="h-4 w-4 text-pink-500 mt-0.5" />
+              <div className="flex items-start space-x-2 text-base text-gray-600">
+                <MapPin className="h-5 w-5 text-pink-500 mt-0.5" />
                 <span className="font-medium">Karachi, Pakistan</span>
               </div>
             </div>
@@ -61,45 +69,37 @@ export function Footer() {
 
           {/* Shop Section */}
           <div className="space-y-4">
-            <h4 className="text-base font-bold text-gray-900 uppercase tracking-wider mb-4 pb-2 border-b border-pink-200">
+            <h4 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-4 pb-2 border-b border-pink-200">
               Shop
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link 
-                  href="/products?category=baby" 
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                <Link
+                  href="/products?category=baby"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   👶 Baby (0-2 Years)
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/products?category=toddler" 
+                <Link
+                  href="/products?category=toddler"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   🧸 Toddler (2-4 Years)
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/products?category=kids" 
+                <Link
+                  href="/products?category=kids"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   ⭐ Big Kids (4-6 Years)
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/products?category=accessories" 
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
-                >
-                  🎒 Accessories
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/collections" 
+                <Link
+                  href="/collections"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   View All Products
@@ -115,40 +115,40 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link 
-                  href="#" 
+                <Link
+                  href="#"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Shipping Info
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="#" 
+                <Link
+                  href="#"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Returns & Exchanges
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="#" 
+                <Link
+                  href="#"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Size Guide
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="#" 
+                <Link
+                  href="#"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/checkout" 
+                <Link
+                  href="/checkout"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Track Your Order
@@ -164,32 +164,32 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link 
-                  href="#" 
+                <Link
+                  href="#"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Our Story
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="#" 
+                <Link
+                  href="#"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="#" 
+                <Link
+                  href="#"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="#" 
+                <Link
+                  href="#"
                   className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Terms of Service
@@ -203,16 +203,26 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-pink-200/50">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <p className="text-sm text-gray-600 font-medium text-center md:text-left">
-              &copy; {new Date().getFullYear()} Little Stars Kids Store. Made with ❤️ for kids!
+              &copy; {new Date().getFullYear()} Little Stars Kids Store. Made
+              with ❤️ for kids!
             </p>
             <div className="flex items-center space-x-6 text-sm text-gray-600">
-              <Link href="#" className="hover:text-pink-600 transition-colors font-medium">
+              <Link
+                href="#"
+                className="hover:text-pink-600 transition-colors font-medium"
+              >
                 Privacy
               </Link>
-              <Link href="#" className="hover:text-pink-600 transition-colors font-medium">
+              <Link
+                href="#"
+                className="hover:text-pink-600 transition-colors font-medium"
+              >
                 Terms
               </Link>
-              <Link href="#" className="hover:text-pink-600 transition-colors font-medium">
+              <Link
+                href="#"
+                className="hover:text-pink-600 transition-colors font-medium"
+              >
                 Cookies
               </Link>
             </div>
@@ -220,6 +230,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

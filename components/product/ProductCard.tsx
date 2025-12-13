@@ -57,7 +57,7 @@ export function ProductCard({
         {/* SAVE 50% Badge - positioned on top right of container */}
         {product.inStock && (
           <div className="absolute top-0 right-0 z-10">
-            <div className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded shadow-lg">
+            <div className="bg-red-500 text-white text-sm font-bold px-3 py-1.5 rounded shadow-lg">
               SAVE 50%
             </div>
           </div>
@@ -65,7 +65,7 @@ export function ProductCard({
       </div>
       <CardContent className="p-4">
         <Link href={productUrl}>
-          <h3 className="font-bold text-sm mb-1 line-clamp-2 hover:text-primary transition-colors min-h-10">
+          <h3 className="font-bold text-base mb-1 line-clamp-2 hover:text-primary transition-colors min-h-10">
             {product.name}
           </h3>
         </Link>
@@ -79,10 +79,10 @@ export function ProductCard({
           </div>
         )}
         <div className="flex items-baseline gap-2">
-          <p className="text-lg font-bold text-red-600">
+          <p className="text-xl font-bold text-red-600">
             from Rs.{product.price.toFixed(2)}
           </p>
-          <p className="text-sm text-muted-foreground line-through">
+          <p className="text-base text-muted-foreground line-through">
             Rs.{originalPrice.toFixed(2)}
           </p>
         </div>
