@@ -84,7 +84,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/products?category=toddler"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   🧸 Toddler (2-4 Years)
                 </Link>
@@ -92,7 +92,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/products?category=kids"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   ⭐ Big Kids (4-6 Years)
                 </Link>
@@ -100,7 +100,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/collections"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   View All Products
                 </Link>
@@ -110,14 +110,14 @@ export function Footer() {
 
           {/* Customer Service Section */}
           <div className="space-y-4">
-            <h4 className="text-base font-bold text-gray-900 uppercase tracking-wider mb-4 pb-2 border-b border-pink-200">
+            <h4 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-4 pb-2 border-b border-pink-200">
               Customer Service
             </h4>
             <ul className="space-y-3">
               <li>
                 <Link
                   href="#"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Shipping Info
                 </Link>
@@ -125,7 +125,7 @@ export function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Returns & Exchanges
                 </Link>
@@ -133,7 +133,7 @@ export function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Size Guide
                 </Link>
@@ -141,7 +141,7 @@ export function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   FAQ
                 </Link>
@@ -149,7 +149,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/checkout"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Track Your Order
                 </Link>
@@ -159,14 +159,14 @@ export function Footer() {
 
           {/* About Section */}
           <div className="space-y-4">
-            <h4 className="text-base font-bold text-gray-900 uppercase tracking-wider mb-4 pb-2 border-b border-pink-200">
+            <h4 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-4 pb-2 border-b border-pink-200">
               About
             </h4>
             <ul className="space-y-3">
               <li>
                 <Link
                   href="#"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Our Story
                 </Link>
@@ -174,7 +174,7 @@ export function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Contact Us
                 </Link>
@@ -182,7 +182,7 @@ export function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Privacy Policy
                 </Link>
@@ -190,7 +190,7 @@ export function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
+                  className="text-base text-gray-600 hover:text-pink-600 font-medium transition-all duration-200 inline-block hover:translate-x-2 hover:font-semibold"
                 >
                   Terms of Service
                 </Link>

@@ -63,11 +63,17 @@ export default async function CollectionsPage({
             <p className="text-xl font-bold mb-2 text-primary">
               {search ? "No products found" : "No products available"}
             </p>
-            <p className="text-muted-foreground font-medium">
+            <p className="text-muted-foreground font-medium mb-6">
               {search
                 ? `Try searching for something else`
                 : "Check back soon for new arrivals!"}
             </p>
+            <a
+              href="/"
+              className="inline-flex items-center justify-center px-6 py-3 bg-linear-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-full hover:from-pink-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              ← Back to Home
+            </a>
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">

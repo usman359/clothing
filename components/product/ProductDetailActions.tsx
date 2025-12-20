@@ -5,8 +5,8 @@ import { useCart } from "@/lib/cart-context";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { CartSheet } from "@/components/layout/CartSheet";
 import { SizeChartModal } from "@/components/product/SizeChartModal";
+import { toast } from "sonner";
 
 interface Product {
   id: string;
@@ -25,15 +25,18 @@ interface ProductDetailActionsProps {
 }
 
 export function ProductDetailActions({ product }: ProductDetailActionsProps) {
-  const { addItem } = useCart();
+  const { addItem, addItemSilent } = useCart();
   const router = useRouter();
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
-  const [cartSheetOpen, setCartSheetOpen] = useState(false);
   const [sizeChartOpen, setSizeChartOpen] = useState(false);
 
   const handleAddToCart = () => {
     if (!selectedSize) {
+      toast.error("Please select a size", {
+        description: "You need to select a size before adding to cart.",
+        duration: 3000,
+      });
       return;
     }
 
@@ -50,16 +53,23 @@ export function ProductDetailActions({ product }: ProductDetailActionsProps) {
       color: product.colors[0] || undefined,
     });
 
-    // Open the cart sheet
-    setCartSheetOpen(true);
+    // Reset quantity to 1 after adding
+    setQuantity(1);
+
+    // Cart sheet will be opened automatically by addItem
   };
 
   const handleBuyNow = () => {
     if (!selectedSize) {
+      toast.error("Please select a size", {
+        description: "You need to select a size before buying.",
+        duration: 3000,
+      });
       return;
     }
 
-    addItem({
+    // Use addItemSilent to not open cart sheet
+    addItemSilent({
       id: product.id,
       name: product.name,
       price: product.price,
@@ -72,6 +82,10 @@ export function ProductDetailActions({ product }: ProductDetailActionsProps) {
       color: product.colors[0] || undefined,
     });
 
+    // Reset quantity to 1
+    setQuantity(1);
+
+    // Go directly to checkout without opening cart sheet
     router.push("/checkout");
   };
 
@@ -109,48 +123,44 @@ export function ProductDetailActions({ product }: ProductDetailActionsProps) {
             </Button>
           ))}
         </div>
-        {!selectedSize && (
-          <p className="text-sm text-red-600">Please select a size</p>
-        )}
       </div>
 
-      {/* Quantity Selection */}
+      {/* Quantity Selection - Matching Size Buttons Style */}
       <div className="space-y-3">
         <label className="text-sm font-bold uppercase tracking-wide">
           Quantity
         </label>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Button
             type="button"
             variant="outline"
-            size="icon"
-            className="h-10 w-10 border-black"
+            size="sm"
             onClick={() => setQuantity(Math.max(1, quantity - 1))}
+            className="min-w-10 h-10 font-semibold bg-white text-black border-black hover:bg-gray-100"
           >
             -
           </Button>
-          <span className="w-12 text-center font-semibold text-lg">
+          <div className="min-w-14 h-10 flex items-center justify-center font-semibold border border-black rounded-md bg-white">
             {quantity}
-          </span>
+          </div>
           <Button
             type="button"
             variant="outline"
-            size="icon"
-            className="h-10 w-10 border-black"
+            size="sm"
             onClick={() => setQuantity(quantity + 1)}
+            className="min-w-10 h-10 font-semibold bg-white text-black border-black hover:bg-gray-100"
           >
             +
           </Button>
         </div>
       </div>
 
-      {/* Action Buttons */}
+      {/* Action Buttons - Always enabled, show toast if no size */}
       <div className="space-y-3">
         <Button
           className="w-full bg-white hover:bg-gray-100 text-black border-2 border-black font-bold"
           size="lg"
           onClick={handleAddToCart}
-          disabled={!selectedSize}
         >
           Add to cart
         </Button>
@@ -158,7 +168,6 @@ export function ProductDetailActions({ product }: ProductDetailActionsProps) {
           className="w-full bg-red-600 hover:bg-red-700 text-white font-bold"
           size="lg"
           onClick={handleBuyNow}
-          disabled={!selectedSize}
         >
           Buy it now
         </Button>
@@ -174,9 +183,6 @@ export function ProductDetailActions({ product }: ProductDetailActionsProps) {
           📏 View Size Chart
         </button>
       </div>
-
-      {/* Cart Sheet */}
-      <CartSheet open={cartSheetOpen} onOpenChange={setCartSheetOpen} />
 
       {/* Size Chart Modal */}
       <SizeChartModal

@@ -2,18 +2,17 @@ import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
 import { ProductGalleryImproved } from "@/components/product/ProductGalleryImproved";
 import { ProductDetailActions } from "@/components/product/ProductDetailActions";
-import { StarRating } from "@/components/ui/star-rating";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { serializeProduct } from "@/lib/serialize";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SocialSharing } from "@/components/product/SocialSharing";
+import { SimilarProducts } from "@/components/product/SimilarProducts";
+import { AskQuestionButton } from "@/components/product/AskQuestionButton";
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -52,19 +51,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const serializedProduct = serializeProduct(product);
   const originalPrice = Number(product.price) * 2;
 
-  // Generate 6 images (use product images or duplicate if needed)
+  // Use actual product images only (no duplication)
   const productImages =
     product.images.length > 0
       ? product.images
       : [
           "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80",
         ];
-
-  // Ensure we have at least 6 images for the gallery
-  const galleryImages = [];
-  for (let i = 0; i < 6; i++) {
-    galleryImages.push(productImages[i % productImages.length]);
-  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -73,7 +66,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           {/* Product Images - Left Side */}
           <div className="w-full">
             <ProductGalleryImproved
-              images={galleryImages}
+              images={productImages}
               name={product.name}
             />
           </div>
@@ -85,15 +78,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <h1 className="text-3xl md:text-4xl font-bold mb-3">
                 {product.name}
               </h1>
-              {serializedProduct.rating && (
-                <div className="mb-4">
-                  <StarRating
-                    rating={serializedProduct.rating}
-                    ratingCount={serializedProduct.ratingCount}
-                    size="md"
-                  />
-                </div>
-              )}
             </div>
 
             {/* Pricing */}
@@ -195,15 +179,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   ASK A QUESTION
                 </AccordionTrigger>
                 <AccordionContent>
-                  <p className="text-muted-foreground mb-4">
-                    Have a question about this product? Contact us via WhatsApp
-                    or email and we&apos;ll get back to you as soon as possible.
-                  </p>
-                  <Button variant="outline" className="border-black" asChild>
-                    <Link href="mailto:support@littlestars.com">
-                      Contact Us
-                    </Link>
-                  </Button>
+                  <AskQuestionButton
+                    productName={product.name}
+                    productSlug={product.slug}
+                  />
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -218,43 +197,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
             {/* Customer Reviews Section */}
             <div className="pt-6 border-t">
               <h3 className="text-lg font-semibold mb-4">Customer Reviews</h3>
-              {serializedProduct.rating && serializedProduct.ratingCount > 0 ? (
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2">
-                    <StarRating
-                      rating={serializedProduct.rating}
-                      ratingCount={serializedProduct.ratingCount}
-                      size="md"
-                    />
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Based on {serializedProduct.ratingCount} review
-                    {serializedProduct.ratingCount !== 1 ? "s" : ""}
-                  </p>
+              <div className="space-y-3">
+                <div className="flex items-center gap-1 text-gray-300">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-2xl">
+                      ☆
+                    </span>
+                  ))}
                 </div>
-              ) : (
-                <div className="space-y-4">
-                  <div className="flex items-center gap-1 text-gray-300">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-2xl">
-                        ☆
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Be the first to write a review
-                  </p>
-                  <Button
-                    className="bg-red-600 hover:bg-red-700 text-white"
-                    size="sm"
-                  >
-                    Write a review
-                  </Button>
-                </div>
-              )}
+                <p className="text-sm text-muted-foreground">No reviews yet</p>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Similar Products */}
+        <SimilarProducts
+          currentProductId={product.id}
+          category={product.category}
+        />
       </div>
     </div>
   );

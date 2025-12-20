@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { checkoutSchema } from "@/lib/validations";
+import { sendOrderConfirmationEmail } from "@/lib/email";
+
+const SHIPPING_COST = 200;
 
 export async function POST(request: NextRequest) {
   try {
@@ -44,6 +47,28 @@ export async function POST(request: NextRequest) {
         status: "pending",
         paymentMethod: "COD",
       },
+    });
+
+    // Calculate subtotal (total - shipping)
+    const subtotal = totalAmount - SHIPPING_COST;
+
+    // Send order confirmation email (non-blocking)
+    sendOrderConfirmationEmail({
+      orderNumber: order.orderNumber,
+      customerName: validationResult.data.customerName,
+      email: validationResult.data.email,
+      phone: validationResult.data.phone,
+      address: validationResult.data.address,
+      city: validationResult.data.city,
+      state: validationResult.data.state,
+      zipCode: validationResult.data.zipCode,
+      items: items,
+      subtotal: subtotal,
+      shipping: SHIPPING_COST,
+      total: totalAmount,
+      orderNotes: orderNotes,
+    }).catch((err) => {
+      console.error("Failed to send order confirmation email:", err);
     });
 
     return NextResponse.json(

@@ -21,7 +21,7 @@ interface CartSheetProps {
 export function CartSheet({ open, onOpenChange }: CartSheetProps) {
   const { items, getTotal } = useCart();
   const total = getTotal();
-  const shipping = total > 0 ? 10 : 0;
+  const shipping = total > 0 ? 200 : 0;
   const finalTotal = total + shipping;
 
   return (

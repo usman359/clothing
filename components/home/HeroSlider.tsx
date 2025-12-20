@@ -21,17 +21,6 @@ const slides = [
     buttonLink: "/collections",
   },
   {
-    id: 2,
-    image:
-      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1920&q=90&auto=format&fit=crop",
-    title: "New Collection",
-    subtitle: "Available Now!",
-    description:
-      "✨ Discover our magical collection of fun, colorful, and comfortable clothing for kids!",
-    buttonText: "Explore Collection",
-    buttonLink: "/collections",
-  },
-  {
     id: 3,
     image:
       "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1920&q=90&auto=format&fit=crop",

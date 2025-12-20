@@ -59,6 +59,8 @@ export function SizeChartModal({
         { size: "4Y", age: "4 years", height: "98-104cm", weight: "16-18kg" },
         { size: "5Y", age: "5 years", height: "104-110cm", weight: "18-21kg" },
         { size: "6Y", age: "6 years", height: "110-116cm", weight: "21-24kg" },
+        { size: "7Y", age: "7 years", height: "116-122cm", weight: "24-27kg" },
+        { size: "8Y", age: "8 years", height: "122-128cm", weight: "27-30kg" },
       ],
     },
   };
@@ -68,12 +70,12 @@ export function SizeChartModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto bg-white">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">
+          <DialogTitle className="text-2xl font-bold text-gray-900">
             {chart.title}
           </DialogTitle>
-          <DialogDescription className="text-base">
+          <DialogDescription className="text-base text-gray-600">
             Find the perfect fit for your little one. All measurements are
             approximate.
           </DialogDescription>
@@ -119,38 +121,8 @@ export function SizeChartModal({
             </table>
           </div>
 
-          {/* Measurement Tips */}
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-            <h4 className="font-bold text-gray-900 mb-2">
-              📏 Measurement Tips
-            </h4>
-            <ul className="space-y-2 text-sm text-gray-700">
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>
-                  <strong>Height:</strong> Measure from the top of the head to
-                  the bottom of the feet while standing straight.
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>
-                  <strong>Weight:</strong> Use a standard scale for accurate
-                  measurements.
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>
-                  <strong>Between sizes?</strong> We recommend ordering the
-                  larger size for a comfortable fit and room to grow.
-                </span>
-              </li>
-            </ul>
-          </div>
-
           {/* Care Instructions */}
-          <div className="mt-4 p-4 bg-purple-50 rounded-lg">
+          <div className="mt-6 p-4 bg-purple-50 rounded-lg">
             <h4 className="font-bold text-gray-900 mb-2">
               🧺 Care Instructions
             </h4>

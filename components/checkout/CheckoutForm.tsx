@@ -28,7 +28,7 @@ export function CheckoutForm() {
   });
 
   const subtotal = getTotal();
-  const shipping = subtotal > 0 ? 10 : 0;
+  const shipping = subtotal > 0 ? 200 : 0;
   const total = subtotal + shipping;
 
   const onSubmit = async (data: CheckoutFormData) => {
@@ -81,7 +81,7 @@ export function CheckoutForm() {
       {/* Checkout Form */}
       <div className="lg:col-span-2 space-y-6">
         <Card className="border-2 shadow-lg">
-          <CardHeader className="bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20">
+          <CardHeader className="bg-linear-to-r from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20">
             <CardTitle className="text-2xl font-bold">
               Shipping Information
             </CardTitle>
@@ -230,11 +230,11 @@ export function CheckoutForm() {
         </Card>
 
         <Card className="border-2 shadow-lg">
-          <CardHeader className="bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20">
+          <CardHeader className="bg-linear-to-r from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20">
             <CardTitle className="text-2xl font-bold">Payment Method</CardTitle>
           </CardHeader>
           <CardContent className="pt-6">
-            <div className="rounded-lg border-2 border-pink-200 dark:border-pink-800 p-6 bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20">
+            <div className="rounded-lg border-2 border-pink-200 dark:border-pink-800 p-6 bg-linear-to-br from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center">
                   <span className="text-white font-bold text-lg">₹</span>
@@ -269,7 +269,7 @@ export function CheckoutForm() {
       {/* Order Summary */}
       <div className="lg:col-span-1">
         <Card className="sticky top-20 border-2 shadow-lg">
-          <CardHeader className="bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20">
+          <CardHeader className="bg-linear-to-r from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20">
             <CardTitle className="text-2xl font-bold">Order Summary</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 pt-6">
