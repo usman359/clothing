@@ -13,7 +13,7 @@ const slides = [
     id: 1,
     image:
       "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=1920&q=90&auto=format&fit=crop",
-    title: "Little Stars",
+    title: "TinnyTrends",
     subtitle: "Kids Store",
     description:
       "🎈 Where kids find their favorite outfits! Colorful, comfy & fun clothing for ages 0-6 ✨",

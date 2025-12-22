@@ -16,8 +16,8 @@ export async function generateMetadata({ searchParams }: ProductsPageProps) {
   };
 
   const title = category
-    ? `${categoryNames[category] || "Products"} - Little Stars Kids Store`
-    : "All Products - Little Stars Kids Store";
+    ? `${categoryNames[category] || "Products"} - TinnyTrends`
+    : "All Products - TinnyTrends";
 
   return {
     title,

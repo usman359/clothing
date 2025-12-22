@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingCart, Menu, X, Search } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
 import { Button } from "@/components/ui/button";
@@ -12,46 +13,24 @@ import { useRouter } from "next/navigation";
 export function Header() {
   const { getItemCount, setIsOpen } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
   const itemCount = getItemCount();
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      router.push(
-        `/collections?search=${encodeURIComponent(searchQuery.trim())}`
-      );
-      setSearchQuery("");
-    }
-  };
 
   return (
     <header className="w-full border-b border-pink-200/50 bg-white/95 backdrop-blur-lg supports-backdrop-filter:bg-white/90 shadow-md">
       <div className="container mx-auto flex h-18 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 group">
-          <div className="relative">
-            <span className="text-3xl md:text-4xl font-black bg-linear-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
-              ⭐ Little Stars
-            </span>
-            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-pink-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+          <div className="relative h-10 w-40">
+            <Image
+              src="/logo.png"
+              alt="TinnyTrends Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
         </Link>
-
-        {/* Search Bar - Desktop */}
-        <div className="hidden lg:block flex-1 max-w-md mx-8">
-          <form onSubmit={handleSearch} className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-            <Input
-              type="search"
-              placeholder="Search products..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 h-10 bg-white border-pink-200 focus:border-pink-500 focus:ring-pink-500"
-            />
-          </form>
-        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-1">

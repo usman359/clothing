@@ -17,7 +17,7 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Little Stars Kids Store - Adorable Clothing for Kids 0-6 Years",
+  title: "TinnyTrends - Adorable Clothing for Kids 0-6 Years",
   description:
     "Discover our magical collection of fun, colorful, and comfortable clothing for kids. Quality fashion that kids love to wear!",
 };

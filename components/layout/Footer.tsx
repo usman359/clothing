@@ -17,7 +17,7 @@ export function Footer() {
           <div className="space-y-5">
             <div>
               <h3 className="text-3xl md:text-4xl font-black bg-linear-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-3">
-                ⭐ Little Stars
+                ⭐ TinnyTrends
               </h3>
               <p className="text-base text-gray-600 leading-relaxed max-w-xs font-medium">
                 ✨ Where kids find their favorite outfits! Colorful, comfy & fun
@@ -203,8 +203,8 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-pink-200/50">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <p className="text-sm text-gray-600 font-medium text-center md:text-left">
-              &copy; {new Date().getFullYear()} Little Stars Kids Store. Made
-              with ❤️ for kids!
+              &copy; {new Date().getFullYear()} TinnyTrends. Made with ❤️ for
+              kids!
             </p>
             <div className="flex items-center space-x-6 text-sm text-gray-600">
               <Link

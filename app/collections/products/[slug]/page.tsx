@@ -33,7 +33,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${product.name} - Little Stars Kids Store`,
+    title: `${product.name} - TinnyTrends`,
     description: product.description,
   };
 }

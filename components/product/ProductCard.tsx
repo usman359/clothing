@@ -69,7 +69,7 @@ export function ProductCard({
             {product.name}
           </h3>
         </Link>
-        {product.rating && (
+        {product.rating != null && product.rating > 0 && (
           <div className="mb-2">
             <StarRating
               rating={product.rating}

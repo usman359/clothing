@@ -72,14 +72,14 @@ export async function sendOrderConfirmationEmail(orderData: OrderEmailData) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Confirmation - Little Stars Kids Store</title>
+  <title>Order Confirmation - TinnyTrends</title>
 </head>
 <body style="margin: 0; padding: 0; font-family: 'Nunito', 'Segoe UI', Arial, sans-serif; background-color: #f8f9fa;">
   <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
     
     <!-- Header -->
     <div style="background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #3b82f6 100%); padding: 30px; border-radius: 16px 16px 0 0; text-align: center;">
-      <h1 style="color: white; margin: 0; font-size: 28px;">⭐ Little Stars Kids Store</h1>
+      <h1 style="color: white; margin: 0; font-size: 28px;">⭐ TinnyTrends</h1>
       <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0;">Order Confirmation</p>
     </div>
     
@@ -195,7 +195,7 @@ export async function sendOrderConfirmationEmail(orderData: OrderEmailData) {
         <span style="color: #ec4899;">📞 +92 300 1234567</span>
       </p>
       <p style="color: #6b7280; margin: 15px 0 0 0; font-size: 12px;">
-        © ${new Date().getFullYear()} Little Stars Kids Store. Made with ❤️ for kids!
+        © ${new Date().getFullYear()} TinnyTrends. Made with ❤️ for kids!
       </p>
     </div>
     
@@ -206,11 +206,11 @@ export async function sendOrderConfirmationEmail(orderData: OrderEmailData) {
 
   try {
     await transporter.sendMail({
-      from: `"Little Stars Kids Store" <${
+      from: `"TinnyTrends" <${
         process.env.SMTP_USER || "noreply@littlestars.com"
       }>`,
       to: orderData.email,
-      subject: `Order Confirmation - ${orderData.orderNumber} | Little Stars Kids Store`,
+      subject: `Order Confirmation - ${orderData.orderNumber} | TinnyTrends`,
       html: emailHtml,
     });
     return { success: true };

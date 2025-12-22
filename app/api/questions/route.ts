@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
     
     <!-- Footer -->
     <div style="text-align: center; padding: 20px; color: #666; font-size: 12px;">
-      <p>Little Stars Kids Store - Customer Inquiry System</p>
+      <p>TinnyTrends - Customer Inquiry System</p>
     </div>
     
   </div>
@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
 
     // Send email to store
     await transporter.sendMail({
-      from: `"Little Stars Kids Store" <${process.env.SMTP_USER}>`,
+      from: `"TinnyTrends" <${process.env.SMTP_USER}>`,
       to: process.env.SMTP_USER, // Send to store email
       replyTo: email,
       subject: `New Question about ${productName}`,
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
     
     <!-- Header -->
     <div style="background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #3b82f6 100%); padding: 30px; border-radius: 16px 16px 0 0; text-align: center;">
-      <h1 style="color: white; margin: 0; font-size: 28px;">⭐ Little Stars Kids Store</h1>
+      <h1 style="color: white; margin: 0; font-size: 28px;">⭐ TinnyTrends</h1>
     </div>
     
     <!-- Content -->
@@ -140,7 +140,7 @@ export async function POST(request: NextRequest) {
     
     <!-- Footer -->
     <div style="text-align: center; padding: 20px; color: #666; font-size: 12px;">
-      <p>© ${new Date().getFullYear()} Little Stars Kids Store. Made with ❤️ for kids!</p>
+      <p>© ${new Date().getFullYear()} TinnyTrends. Made with ❤️ for kids!</p>
     </div>
     
   </div>
@@ -149,9 +149,9 @@ export async function POST(request: NextRequest) {
     `;
 
     await transporter.sendMail({
-      from: `"Little Stars Kids Store" <${process.env.SMTP_USER}>`,
+      from: `"TinnyTrends" <${process.env.SMTP_USER}>`,
       to: email,
-      subject: `We Received Your Question - Little Stars Kids Store`,
+      subject: `We Received Your Question - TinnyTrends`,
       html: customerEmailHtml,
     });
 

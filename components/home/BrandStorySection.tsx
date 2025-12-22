@@ -14,7 +14,7 @@ export function BrandStorySection() {
             </span>
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black bg-linear-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-            About Little Stars
+            About TinnyTrends
           </h2>
           <div className="space-y-8 text-xl md:text-2xl leading-relaxed">
             <p className="text-gray-700 font-medium">
