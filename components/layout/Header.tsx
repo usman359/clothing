@@ -1,19 +1,16 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { ShoppingCart, Menu, X, Search } from "lucide-react";
-import { useCart } from "@/lib/cart-context";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useCart } from "@/lib/cart-context";
+import { Menu, ShoppingCart, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 export function Header() {
   const { getItemCount, setIsOpen } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const router = useRouter();
   const itemCount = getItemCount();
 
   return (
@@ -21,15 +18,14 @@ export function Header() {
       <div className="container mx-auto flex h-18 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 group">
-          <div className="relative h-10 w-40">
-            <Image
-              src="/logo.png"
-              alt="TinnyTrends Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+          <Image
+            src="/logo.png"
+            alt="TinnyTrends Logo"
+            width={150}
+            height={150}
+            className="object-cover"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}

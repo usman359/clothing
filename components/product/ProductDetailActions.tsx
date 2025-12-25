@@ -188,7 +188,7 @@ export function ProductDetailActions({ product }: ProductDetailActionsProps) {
       <SizeChartModal
         open={sizeChartOpen}
         onOpenChange={setSizeChartOpen}
-        category={product.category}
+        productSlug={product.slug}
       />
     </div>
   );
